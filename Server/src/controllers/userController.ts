@@ -53,8 +53,7 @@ export const signin: RequestHandler = async (req: Request, res: Response) => {
     }
 
     const token = jwt.sign({id: user._id}, JWT_USER_PASSWORD);
-    res.json({token});
-    res.status(200).json({message: "Login Successful"});
+    res.status(200).json({ token, message: "Login Successful" });
     return;
   } catch (error) {
     res.status(500).json({message: "Internal Server Error", error});

@@ -51,8 +51,7 @@ const signin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             return;
         }
         const token = jsonwebtoken_1.default.sign({ id: user._id }, config_1.JWT_USER_PASSWORD);
-        res.json({ token });
-        res.status(200).json({ message: "Login Successful" });
+        res.status(200).json({ token, message: "Login Successful" });
         return;
     }
     catch (error) {

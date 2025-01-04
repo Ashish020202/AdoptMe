@@ -4,24 +4,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
-const zod_1 = require("zod");
 const userSchema = new mongoose_1.default.Schema({
     fullname: {
-        type: zod_1.z.string(),
+        type: String,
         required: true,
     },
     email: {
-        type: zod_1.z.string().email(),
+        type: String,
         required: true,
+        unique: true,
     },
     mobile: {
-        type: zod_1.z.string().regex(/^\d{10}$/),
+        type: String,
         required: true,
     },
     password: {
-        type: zod_1.z.string().min(8),
+        type: String,
         required: true,
-    }
+    },
 });
 const User = mongoose_1.default.model("User", userSchema);
 exports.default = User;
