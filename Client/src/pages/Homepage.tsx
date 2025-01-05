@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 
 function Homepage() {
   const carouselImages = [
@@ -30,7 +31,6 @@ function Homepage() {
     },
   ];
 
-  // Slider settings for react-slick
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -42,42 +42,57 @@ function Homepage() {
   };
 
   return (
-    <div className="bg-gray-300 h-screen flex flex-col items-center pt-12">
-      {/* Main Content */}
-      <div className="text-center">
-        <h1 className="text-3xl font-bold text-gray-800">
-          Welcome to the Pet Adopt!
-        </h1>
-        <p className="mt-4 text-lg text-gray-700">
-          Find your furry friend, donate to pet lovers, and help stray animals
-          in need.
-        </p>
-        <div className="mt-6 space-x-4">
-          <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-            View Dogs
-          </button>
-          <button className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">
-            Report Emergency
-          </button>
+    <div className="bg-gray-200 min-h-screen overflow-x-hidden">
+      <div className="container mx-auto px-6">
+        {/* Main Content */}
+        <div className="text-center mt-12">
+          <h1 className="text-4xl font-extrabold text-gray-800">
+            Welcome to Pet Adopt!
+          </h1>
+          <p className="mt-4 text-lg text-gray-700">
+            Find your furry friend, donate to pet lovers, and help stray animals
+            in need.
+          </p>
+          <div className="mt-8 flex justify-center gap-6">
+            <Link to="/adoption">
+              <button className="bg-blue-600 text-white py-2 px-6 rounded-lg shadow hover:bg-blue-700">
+                View Dogs
+              </button>
+            </Link>
+            <Link to="/emergency">
+              <button className="bg-green-600 text-white py-2 px-6 rounded-lg shadow hover:bg-green-700">
+                Report Emergency
+              </button>
+            </Link>
+          </div>
         </div>
-      </div>
 
-      {/* Carousel */}
-      <div className="w-full max-w-4xl mb-8 mt-8">
-        <Slider {...sliderSettings}>
-          {carouselImages.map((image) => (
-            <div key={image.id} className="relative">
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-96 object-cover rounded"
-              />
-              <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-sm p-2 rounded-bl">
-                {image.caption}
+        {/* Carousel */}
+        <div className="mt-10">
+          <Slider {...sliderSettings}>
+            {carouselImages.map((image) => (
+              <div key={image.id} className="relative">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-64 md:h-[28rem] lg:h-[32rem] object-cover rounded-md"
+                />
+                <div className="absolute bottom-4 left-4 bg-black bg-opacity-60 text-white text-sm md:text-base px-4 py-2 rounded">
+                  {image.caption}
+                </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        </div>
+
+        {/* Additional Info Section */}
+        <div className="mt-12 text-center text-gray-800">
+          <h2 className="text-2xl font-bold">Why Choose Us?</h2>
+          <p className="mt-4 text-md">
+            We connect you to verified shelters, provide support for pet lovers,
+            and empower you to make a difference in the lives of stray animals.
+          </p>
+        </div>
       </div>
     </div>
   );

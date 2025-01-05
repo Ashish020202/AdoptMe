@@ -153,13 +153,17 @@ function Header() {
               </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/signin"
                 onClick={() => setIsOpen(false)}
-                className="block text-lg bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-center"
+                className={({ isActive }) =>
+                  `block text-lg ${
+                    isActive ? "text-blue-500" : "text-gray-900"
+                  } hover:text-blue-600`
+                }
               >
                 Sign In
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
