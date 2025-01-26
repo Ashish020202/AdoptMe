@@ -45,7 +45,7 @@ function SigninPage() {
   };
 
   return (
-    <div className="bg-gray-300 h-screen flex flex-col justify-center items-center">
+    <div className="bg-gray-200 h-screen flex flex-col justify-top pt-16 md:pt-40 items-center">
       <Link to="/" className="text-2xl font-bold text-blue-600">
         🐾 PetAdopt
       </Link>

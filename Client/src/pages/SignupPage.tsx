@@ -47,7 +47,7 @@ function SignupPage() {
   };
 
   return (
-    <div className="bg-gray-300 h-screen flex flex-col justify-center items-center">
+    <div className="bg-gray-200 h-screen flex flex-col justify-top pt-4 md:pt-40 items-center">
       <Link to="/" className="text-2xl font-bold text-blue-600">
         🐾 PetAdopt
       </Link>
@@ -60,7 +60,7 @@ function SignupPage() {
         className="mt-6 bg-white p-6 rounded shadow-lg space-y-4 w-full max-w-sm"
       >
         <div>
-          <label
+          <label 
             htmlFor="fullname"
             className="block text-sm font-medium text-gray-700"
           >
